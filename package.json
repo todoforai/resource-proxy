@@ -1,0 +1,19 @@
+{
+  "name": "resource-proxy",
+  "version": "1.0.0",
+  "description": "Minimal auth+meter WebSocket proxy for browser.todofor.ai, vm.todofor.ai, etc.",
+  "type": "module",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "bun --watch server.ts",
+    "start": "bun server.ts"
+  },
+  "dependencies": {
+    "redis": "^4.6.13",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.5.10",
+    "bun-types": "latest"
+  }
+}
