@@ -106,10 +106,10 @@ function extractToken(req: IncomingMessage): string | null {
   const apiKey = req.headers['x-api-key'];
   if (apiKey) return Array.isArray(apiKey) ? apiKey[0] : apiKey;
 
-  // 3. URL query param (for browser WebSocket which can't set headers)
+  // 3. URL query param (for WebSocket clients that can't set headers)
   const url = new URL(req.url ?? '/', `http://${req.headers.host}`);
-  const tokenParam = url.searchParams.get('token');
-  if (tokenParam) return tokenParam;
+  const apiKeyParam = url.searchParams.get('api_key');
+  if (apiKeyParam) return apiKeyParam;
 
   // 4. Cookie (for same-domain browser clients)
   const cookies = req.headers.cookie;
